@@ -61,15 +61,16 @@ public class Explorer extends ListActivity {
         setListAdapter(adapter);
 
         ListView lv= getListView();
-
         lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> av, View v, int pos, long id) {
 
                 String filename=getFilename(pos);
-                setRingtone(filename);
-                Toast.makeText(getApplicationContext(), "Ringtone changed!",
-                        Toast.LENGTH_LONG).show();
+                if (filename.endsWith(".mp3")) {
+                    setRingtone(filename);
+                    Toast.makeText(getApplicationContext(), "Ringtone changed!",
+                            Toast.LENGTH_LONG).show();
+                }
                 return true;
             }
         });
