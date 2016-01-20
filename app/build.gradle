@@ -1,0 +1,38 @@
+apply plugin: 'com.android.application'
+
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.1.0'
+    compile 'com.android.support:design:23.1.0'
+    compile ('org.apache.ftpserver:ftpserver-core:1.0.6'){
+        exclude module: 'ftplet-api'
+        exclude module: 'slf4j-api-1.6.1'
+    }
+    compile 'org.slf4j:slf4j-api:1.7.13'
+}
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
+
+    defaultConfig {
+        applicationId "horbacz.maciej.wirelessconnection"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.2"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
+}
+
