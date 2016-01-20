@@ -28,6 +28,9 @@ public class Server extends Service {
     @Override
     public void onCreate() {
 
+        Toast.makeText(getApplicationContext(), "Starting server!",
+                Toast.LENGTH_LONG).show();
+
         FtpServerFactory serverFactory = new FtpServerFactory();
         ListenerFactory factory = new ListenerFactory();
         // set the port of the listener
