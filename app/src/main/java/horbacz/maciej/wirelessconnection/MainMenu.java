@@ -30,7 +30,7 @@ public class MainMenu extends AppCompatActivity {
         explorer_btn= (Button) findViewById(R.id.button_explorer);
         server_btn= (Button) findViewById(R.id.button_server);
         ip_addr= (TextView) findViewById(R.id.textIP);
-        ip_addr.setText(getIp());
+        ip_addr.setText(getLANIP());
     }
 
 
@@ -91,7 +91,7 @@ public class MainMenu extends AppCompatActivity {
         }
     }
 
-    public String getIp() {
+    public String getLANIP() {
         WifiManager wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
         WifiInfo wifiInfo=  wifiManager.getConnectionInfo();
         int ip = wifiInfo.getIpAddress();

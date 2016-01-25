@@ -37,18 +37,23 @@ public class Server extends Service {
         factory.setPort(2221);
         // replace the default listener
         serverFactory.addListener("default", factory.createListener());
-
+        // create configuring profie for server
         ConnectionConfigFactory connectionConfigFactory = new ConnectionConfigFactory();
+        // allow logging annoymously
         connectionConfigFactory.setAnonymousLoginEnabled(true);
-
+        // applying configuration
         serverFactory.setConnectionConfig(connectionConfigFactory.createConnectionConfig());
-
+        // creatale user
         BaseUser user = new BaseUser();
         user.setName("anonymous");
+        // create list of objects with specific permissions
         List<Authority> authorities = new ArrayList<>();
+        // set permission to write data
         authorities.add(new WritePermission());
+        // set permissions to user
         user.setAuthorities(authorities);
 
+        // save user
         try {
             serverFactory.getUserManager().save(user);
         } catch (FtpException e) {
@@ -63,8 +68,6 @@ public class Server extends Service {
         } catch (FtpException e) {
             e.printStackTrace();
         }
-
-
     }
 
     public void onDestroy(){
