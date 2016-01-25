@@ -75,8 +75,6 @@ public class MainMenu extends AppCompatActivity {
     }
 
     Random r= new Random();
-    int red=r.nextInt(255);
-
 
     public void explorerClick(View view){
         int red=r.nextInt(255);
