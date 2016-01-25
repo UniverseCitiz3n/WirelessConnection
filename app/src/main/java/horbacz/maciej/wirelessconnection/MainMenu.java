@@ -1,5 +1,7 @@
 package horbacz.maciej.wirelessconnection;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.wifi.WifiInfo;
@@ -51,6 +53,16 @@ public class MainMenu extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_about) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("Application for Engineer degree\nCreator: Maciej Horbacz\nWrocław University of Technology\nElectronics\nComputer Science\nSystems and computer networks")
+                    .setCancelable(false)
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            //do things
+                        }
+                    });
+            AlertDialog alert = builder.create();
+            alert.show();
             return true;
         }
 
